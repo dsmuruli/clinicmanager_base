@@ -4,7 +4,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
-import java.sql.Timestamp;
+import java.util.Date;
 
 @Entity
 public class Appointment extends BaseEntity {
@@ -15,8 +15,8 @@ public class Appointment extends BaseEntity {
     Long locationId;
     Long providerId;
     Long patientId;
-    Timestamp startTime;
-    Timestamp endTime;
+    Date startTime;
+    Date endTime;
     String notes;
     Boolean cancelled;
 
@@ -52,19 +52,19 @@ public class Appointment extends BaseEntity {
         this.patientId = patientId;
     }
 
-    public Timestamp getStartTime() {
+    public Date getStartTime() {
         return startTime;
     }
 
-    public void setStartTime(Timestamp startTime) {
+    public void setStartTime(Date startTime) {
         this.startTime = startTime;
     }
 
-    public Timestamp getEndTime() {
+    public Date getEndTime() {
         return endTime;
     }
 
-    public void setEndTime(Timestamp endTime) {
+    public void setEndTime(Date endTime) {
         this.endTime = endTime;
     }
 

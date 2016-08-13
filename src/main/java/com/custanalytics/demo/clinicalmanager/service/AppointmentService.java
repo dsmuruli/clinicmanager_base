@@ -3,7 +3,6 @@ package com.custanalytics.demo.clinicalmanager.service;
 import com.custanalytics.demo.clinicalmanager.dao.AppointmentRepository;
 import com.custanalytics.demo.clinicalmanager.entity.Appointment;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.data.jpa.repository.Query;
 import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Service;
 
@@ -45,12 +44,12 @@ public class AppointmentService {
         appointment = appointmentRepository.save(appointment);
         return appointment;
     }
-    @Query("SELECT a FROM Appointment a WHERE a.providerId=:providerId and a.startDate>=:startDate and a.endDate <=:endDate")
+
     public List<Appointment> findActiveAppointmentsByProvider(@Param("providerId")Long providerId,@Param("startDate") Date startDate,@Param("endDate") Date endDate) {
         return appointmentRepository.findProviderActiveAppointments(providerId, startDate, endDate);
     }
-    @Query("SELECT a FROM Appointment a WHERE a.providerId=:patientId and a.startDate>=:startDate and a.endDate <=:endDate")
-    public List<Appointment> findActiveAppointmentsByPatient(@Param("patientId")Long patientId, @Param("startDate")Date startDate,@Param("endDate") Date endDate) {
+
+    public List<Appointment> findActiveAppointmentsByPatient(Long patientId, Date startDate, Date endDate) {
         return appointmentRepository.findPatientActiveAppointments(patientId, startDate, endDate);
     }
 
