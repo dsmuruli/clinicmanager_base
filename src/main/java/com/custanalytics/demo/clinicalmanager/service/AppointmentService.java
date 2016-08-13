@@ -16,9 +16,7 @@ public class AppointmentService {
     AppointmentRepository appointmentRepository;
 
     public Appointment createAppointment(Appointment appointment, Long appUserId) {
-        /**
-         * Insert validation code to make sure that code is read from
-         */
+
         appointment.setCreated(new Date());
         appointment.setCreatedBy(appUserId);
         return appointmentRepository.save(appointment);
