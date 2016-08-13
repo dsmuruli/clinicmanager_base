@@ -36,9 +36,6 @@ CREATE TABLE IF NOT EXISTS public.location
   postal_code character varying(255),
   country character varying(255),
   main_number character varying(255),
-  first_name character varying(255),
-  last_name character varying(255),
-  salutation character varying(255),
   created TIMESTAMP,
   created_by bigint,
   updated TIMESTAMP,
@@ -62,3 +59,17 @@ CREATE TABLE IF NOT EXISTS public.appointment
   updated_by bigint,
   CONSTRAINT appointment_pkey PRIMARY KEY (id)
 );
+CREATE TABLE public.patient
+(
+  id bigint NOT NULL,
+  first_name character varying(255),
+  last_name character varying(255),
+  salutation character varying(10),
+  id_image_location character varying(255),
+  dob date,
+  created TIMESTAMP,
+  created_by bigint,
+  updated TIMESTAMP,
+  updated_by bigint
+  CONSTRAINT patient_pkey PRIMARY KEY (id)
+)
